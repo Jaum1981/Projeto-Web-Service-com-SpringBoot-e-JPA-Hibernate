@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.project.entities.User;
 import com.example.project.services.UserService;
 
-//CONTROLADOR reST
+//CONTROLADOR rest
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
