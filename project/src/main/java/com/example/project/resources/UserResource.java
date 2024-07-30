@@ -11,7 +11,7 @@ import com.example.project.entities.User;
 @RequestMapping(value = "/users")
 public class UserResource {
 
-    @GetMapping // para indicar que corresponde a requisisao get do htpp
+    @GetMapping // para indicar que corresponde a requisisao get do http
     public ResponseEntity<User> findAll() {
         User u = new User(1L, "jaum", "jaum@email.com", "4002-8922", "12345");
         return ResponseEntity.ok().body(u);
