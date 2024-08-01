@@ -21,7 +21,7 @@ public class CategoryResource {
     private CategoryService service;
 
     // endpoint
-    @GetMapping // para indicar que corresponde a requisisao get do http
+    @GetMapping // para indicar que corresponde a requisicao get do http
     public ResponseEntity<List<Category>> findAll() {
         List<Category> list = service.findAll();
         return ResponseEntity.ok().body(list);

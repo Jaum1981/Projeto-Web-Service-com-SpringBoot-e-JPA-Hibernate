@@ -21,7 +21,7 @@ public class OrderResource {
     private OrderService service;
 
     // endpoint
-    @GetMapping // para indicar que corresponde a requisisao get do http
+    @GetMapping // para indicar que corresponde a requisicao get do http
     public ResponseEntity<List<Order>> findAll() {
         List<Order> list = service.findAll();
         return ResponseEntity.ok().body(list);

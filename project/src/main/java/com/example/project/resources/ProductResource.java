@@ -9,28 +9,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.project.entities.User;
-import com.example.project.services.UserService;
+import com.example.project.entities.Product;
+import com.example.project.services.ProductService;
 
-//CONTROLADOR rest
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/products")
+public class ProductResource {
 
     @Autowired
-    private UserService service;
+    private ProductService service;
 
     // endpoint
     @GetMapping // para indicar que corresponde a requisicao get do http
-    public ResponseEntity<List<User>> findAll() {
-        List<User> list = service.findAll();
+    public ResponseEntity<List<Product>> findAll() {
+        List<Product> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     // endpoint
     @GetMapping(value = "/{id}") // indica que arequisicao vai aceitar um id dentro da url
-    public ResponseEntity<User> findById(@PathVariable Long id) { // para considerar como parametro
-        User user = service.findById(id);
-        return ResponseEntity.ok().body(user);
+    public ResponseEntity<Product> findById(@PathVariable Long id) { // para considerar como parametro
+        Product product = service.findById(id);
+        return ResponseEntity.ok().body(product);
     }
 }
