@@ -12,7 +12,6 @@ import jakarta.persistence.ManyToOne;
 //classe auxiliar de chave primaria composta
 @Embeddable
 public class OrderItemPK implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @ManyToOne
@@ -69,5 +68,4 @@ public class OrderItemPK implements Serializable {
             return false;
         return true;
     }
-
 }

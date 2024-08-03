@@ -28,13 +28,14 @@ public class Order implements Serializable {
     private Long id;
 
     // formatacao do json para o Instant
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z", timezone = "GMT")
+    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern =
+    // "yyyy-MM-dd'T'HH:mm:ss'Z", timezone = "GMT")
     private Instant moment;
 
     private Integer orderStatus; // para dizer que dentro do banco de dados 'e um inteiro'
 
     @ManyToOne // instrui o jpa prar transformar em uma chave estrangeira
-    @JoinColumn(name = "clientId") // nome da chave estrangeira
+    @JoinColumn(name = "client_id") // nome da chave estrangeira
     private User client;
 
     @OneToMany(mappedBy = "id.order") // muito louco
