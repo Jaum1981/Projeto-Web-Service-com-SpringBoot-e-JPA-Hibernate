@@ -38,9 +38,6 @@ public class Product implements Serializable {
     private Set<Category> categories = new HashSet<>(); // products nao ter mais de uma categoria
     // instaciado para a colecao nao ser nulla, e sim vazia
 
-    @OneToMany(mappedBy = "id.product")
-    private Set<OrderItem> items = new HashSet<>();
-
     public Product() {
 
     }
@@ -95,14 +92,6 @@ public class Product implements Serializable {
 
     public Set<Category> getCategory() {
         return categories;
-    }
-
-    public Set<Order> getOrders() {
-        Set<Order> set = new HashSet<>();
-        for (OrderItem x : items) {
-            set.add(x.getOrder());
-        }
-        return set;
     }
 
     @Override
