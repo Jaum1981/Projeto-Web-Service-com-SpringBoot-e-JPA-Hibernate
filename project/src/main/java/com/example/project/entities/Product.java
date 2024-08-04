@@ -6,6 +6,8 @@ import java.util.Set;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -37,6 +39,9 @@ public class Product implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "category_id")) // nome da tabela Fk
     private Set<Category> categories = new HashSet<>(); // products nao ter mais de uma categoria
     // instaciado para a colecao nao ser nulla, e sim vazia
+
+    @OneToMany(mappedBy = "id.product")
+    private Set<OrderItem> items = new HashSet<>();
 
     public Product() {
 
@@ -92,6 +97,15 @@ public class Product implements Serializable {
 
     public Set<Category> getCategory() {
         return categories;
+    }
+
+    @JsonIgnore
+    public Set<Order> getOrders() {
+        Set<Order> set = new HashSet<>();
+        for (OrderItem x : items) {
+            set.add(x.getOrder());
+        }
+        return set;
     }
 
     @Override
