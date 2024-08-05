@@ -33,12 +33,12 @@ public class OrderItem implements Serializable {
     }
 
     public Double subTotal() {
-        return;
+        return price * quantity;
     }
 
     @JsonIgnore //o que vale 'e o get'
     public Order getOrder() {
-        return id.getOrder()
+        return id.getOrder();
     }
 
     public void setOrder(Order order) {
