@@ -33,4 +33,17 @@ public class UserService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+    public User update(Long id, User user) {
+        User entity = repository.getReferenceById(id); // prepara o obj monitorado, e so dps vai no BD
+        updateData(entity, user);
+        return repository.save(entity);
+    }
+
+    // metodo aux
+    private void updateData(User entity, User user) {
+        entity.setName(user.getName());
+        entity.setEmail(user.getEmail());
+        entity.setPhone(user.getPhone());
+    }
 }
