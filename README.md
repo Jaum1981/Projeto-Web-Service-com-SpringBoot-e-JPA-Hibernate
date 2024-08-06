@@ -17,3 +17,5 @@
 ### Diagrama de classe:
 
 ![Alt text](/documentacaoProjeto/domain.png?raw=true "Diagrama de Classes")
+
+![Alt text](/documentacaoProjeto/logical.png?raw=true "Camada Logica")
