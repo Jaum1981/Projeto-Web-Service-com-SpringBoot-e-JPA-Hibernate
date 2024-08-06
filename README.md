@@ -30,9 +30,22 @@
 - Maven
 
 # Como executar o projeto
+
 ## Back end
-Pré-requisitos: Java 21
+
+**Pré-requisitos:**
+- Java 21
+- Maven (ou outra ferramenta de build de sua preferência)
 
 ```bash
-# clonar repositório
+# Clonar repositório
 git clone https://github.com/Jaum1981/Projeto-Web-Service-com-SpringBoot-e-JPA-Hibernate
+
+# Navegar até o diretório do projeto
+cd Projeto-Web-Service-com-SpringBoot-e-JPA-Hibernate
+
+# Construir o projeto com Maven
+mvn clean install
+
+# Executar o projeto
+mvn spring-boot:run
