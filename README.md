@@ -42,7 +42,7 @@
 git clone https://github.com/Jaum1981/Projeto-Web-Service-com-SpringBoot-e-JPA-Hibernate
 
 # Navegar até o diretório do projeto
-cd Projeto-Web-Service-com-SpringBoot-e-JPA-Hibernate
+cd Projeto-Web-Service-com-SpringBoot-e-JPA-Hibernate/project
 
 # Construir o projeto com Maven
 mvn clean install
