@@ -12,3 +12,8 @@
 - Povoar o banco de dados
 - CRUD - Create, Retrieve, Update, Delete
 - Tratamento de exceções
+
+
+### Diagrama de classe:
+
+![Alt text](/documentacao/domain.png?raw=true "Diagrama de Classes")
