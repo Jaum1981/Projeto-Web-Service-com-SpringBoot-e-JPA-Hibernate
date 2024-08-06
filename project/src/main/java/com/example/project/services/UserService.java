@@ -12,6 +12,8 @@ import com.example.project.repositories.UserRepository;
 import com.example.project.services.exceptions.DataBaseException;
 import com.example.project.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service // registra a classe como componete do spring para poder ser injetada
          // automaticamente
 public class UserService {
@@ -47,9 +49,15 @@ public class UserService {
 	} 
 
     public User update(Long id, User user) {
-        User entity = repository.getReferenceById(id); // prepara o obj monitorado, e so dps vai no BD
-        updateData(entity, user);
-        return repository.save(entity);
+    	try {
+    		User entity = repository.getReferenceById(id); // prepara o obj monitorado, e so dps vai no BD
+            updateData(entity, user);
+            return repository.save(entity);
+		} catch (EntityNotFoundException e) {
+			e.printStackTrace();
+			throw new ResourceNotFoundException(id);
+		}
+        
     }
 
     // metodo aux
