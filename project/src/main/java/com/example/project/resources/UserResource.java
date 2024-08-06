@@ -48,9 +48,7 @@ public class UserResource {
     }
 
     @DeleteMapping(value = "/{id}") // mesmo esquema mas para delete
-    public ResponseEntity<Void> delete(@PathVariable Long id) { // void pois a resposta da requisicao nao retorna nenhum
-                                                                // corpo // path variable para reconhecer como variavel
-                                                                // da url
+    public ResponseEntity<Void> delete(@PathVariable Long id) { // void pois a resposta da requisicao nao retorna nenhum corpo 
         service.delete(id);
         return ResponseEntity.noContent().build(); // retorna uma resposta vazia (codigo 204)
     }

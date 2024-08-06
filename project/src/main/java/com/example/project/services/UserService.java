@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.example.project.entities.User;
 import com.example.project.repositories.UserRepository;
+import com.example.project.services.exceptions.DataBaseException;
 import com.example.project.services.exceptions.ResourceNotFoundException;
 
 @Service // registra a classe como componete do spring para poder ser injetada
@@ -31,9 +34,18 @@ public class UserService {
         return repository.save(user);
     }
 
-    public void delete(Long id) {
-        repository.deleteById(id);
-    }
+	public void delete(Long id) {
+		Optional<User> user = repository.findById(id);
+		if (user.isPresent()) {
+			try {
+				repository.deleteById(id);
+			} catch (DataIntegrityViolationException e) {
+				throw new DataBaseException(e.getMessage());
+			}
+		} else {
+			throw new ResourceNotFoundException(id);
+		}
+	} 
 
     public User update(Long id, User user) {
         User entity = repository.getReferenceById(id); // prepara o obj monitorado, e so dps vai no BD
