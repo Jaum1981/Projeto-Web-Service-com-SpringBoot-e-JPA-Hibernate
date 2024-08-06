@@ -49,3 +49,7 @@ mvn clean install
 
 # Executar o projeto
 mvn spring-boot:run
+```
+
+# Acessar a aplicação
+Abra seu navegador e acesse http://localhost:8080 para interagir com a aplicação.
